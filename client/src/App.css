@@ -1,0 +1,23 @@
+
+body {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+select{
+  width: 100vw;
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 0px !important
+}
+
+select:focus{
+  outline: none;
+  background: rgba(128, 128, 128, 0.628)
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
