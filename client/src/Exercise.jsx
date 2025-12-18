@@ -5,8 +5,9 @@ import axios from "axios";
 import { MDBCard, MDBCardTitle, MDBCardText } from "mdb-react-ui-kit";
 
 export default function Exercise() {
+  console.log(exercises?.map((exercise) => exercise.bodyPart));
   const [image, setImage] = useState("");
-  const [isImageVisible, setIsImageVisible] = useState(true)
+  const [isImageVisible, setIsImageVisible] = useState(true);
 
   async function getImage() {
     const response = await axios({
@@ -30,11 +31,11 @@ export default function Exercise() {
       }
       const base64String = btoa(binary);
       setImage(base64String);
-      setIsImageVisible(true)
+      setIsImageVisible(true);
     } catch (error) {
       console.log(error.code);
     }
-    setIsImageVisible(false)
+    setIsImageVisible(false);
   }
 
   const [target, setTarget] = useState("abs");
@@ -123,10 +124,16 @@ export default function Exercise() {
           <img
             width=""
             src={`data:image/gif;base64,${image}`}
-            style={isImageVisible ? {display: "none"}: { width: "100%", height: "100%" }}
+            style={
+              isImageVisible
+                ? { display: "none" }
+                : { width: "100%", height: "100%" }
+            }
             alt=""
           />
-          {isImageVisible && <p style={{textAlign: "center"}}>Loading Image...</p> }
+          {isImageVisible && (
+            <p style={{ textAlign: "center" }}>Loading Image...</p>
+          )}
           <MDBCardText
             style={isBeginState ? { display: "none" } : { padding: 8 }}
           >
